@@ -1,5 +1,29 @@
 {% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+<style>
+  .content {
+  width:80%;
+  margin: 0 auto;
+
+</style>
+
+  <div class="jumbotron">
+    <h1 class="display-4">Fraud Detection Tool!</h1>
+    <p class="lead">This is a simple Machine learning model that predict if  transcation is fraudlent or not</p>
+    <hr class="my-4">
+    <p>Just feed the details required in the page below and click Predict to get a response.</p>
+    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+  </div>
+<div class="content">
+    {% if message: %}
+            <p style="text-align:center">{{message}}</p>
+    {% endif %}
+    <h3 style="text-align:center">Required data</h3>
+    <form action="{{url_for('home')}}" method="post" >
+      {{wtf.quick_form(form, button_map={"submit":"primary"}) }}
+    </form>
 
 
+</div>
 
 {% include "footer.html" %}
