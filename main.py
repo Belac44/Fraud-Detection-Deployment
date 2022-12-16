@@ -6,7 +6,7 @@ from wtforms.validators import DataRequired
 import os
 
 class DataForm(FlaskForm):
-    step =  IntegerField("Step", validators=[DataRequired()])
+    step = IntegerField("Step", validators=[DataRequired()])
     type = SelectField("Type", choices=[("PAYMENT"), ("TRANSFER"), ("CASH_OUT")])
     amount = IntegerField("Amount", validators=[DataRequired()])
     nameOrig = StringField("nameOrig", validators=[DataRequired()])
@@ -35,12 +35,12 @@ def home():
         oldBD = form.oldBD.data
         newBD = form.newBD.data
 
-        print(step,type,amount, nameOrig, oldB, oldBD, newBD,nameDest, newB)
+        print(step, type, amount, nameOrig, oldB, oldBD, newBD, nameDest, newB)
 
-        return redirect(url_for('home', message="sucessful data"))
+        return redirect(url_for('home', message="successful data"))
 
     return render_template("home.html", form=form)
 
 
-if __name__== "__main__":
+if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)
